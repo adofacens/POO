@@ -1,0 +1,88 @@
+package main;
+
+public class Matematica {
+
+
+		public int soma(int a, int b) {
+			return a + b;
+		}
+		
+		public int soma(int a, int b, int c) {
+			return a + b + c;
+		}
+		
+		public int soma(int[] lista) {
+			int result = 0;
+			
+			for(int n : lista)
+				result += n;
+			
+			return result;
+		}
+		
+
+		
+		public static void main(String[] args) {
+			
+			Matematica mat = new Matematica();
+			
+			int[] array = {1,2,3,4,5,6,7,8,9};
+			
+			
+			int x = mat.soma(1, 2);
+			int y = mat.soma(3, 4, 5);
+			int z = mat.soma(array);
+			
+			System.out.println("x = " + x); // Saída Esperada: 3
+			System.out.println("y = " + y); // Saída Esperada: 12
+			System.out.println("z = " + z); // Saída Esperada: 45
+			
+			// Vamos utilizar os métodos da Classe interna OperacaoComArrays
+			OperacaoComArrays op = mat.new OperacaoComArrays();
+			
+			System.out.println("\nImprimindo array completo:");
+			op.printArray(array);
+			
+			System.out.println("\nImprimindo 5 primeiros elementos:");
+			op.printArray(array, 5); // Imprime apenas os 5 primeiros elementos
+			
+			System.out.println("\nImprimindo elementos do índice 2 ao 6:");
+			op.printArray(array, 2, 6); // Imprime do índice 1 até o índice 6 
+			
+		}
+		// Classe interna que lida com operações de impressão do arrays
+		public class OperacaoComArrays {
+			
+			// 1. Imprime todos os elementos do array
+			public void printArray(int[] array) {
+				for(int i=0; i<array.length; i++) {
+					System.out.println(array[i] + " ");
+			}
+				System.out.println(); // Quebra Linha
+			}
+			
+			// 2. Imprime apenas os primeiros "qtd" elementos do array
+			public void printArray(int[] array, int qtd) {
+				// Garantir que qtd não exceda o tamanho real do array
+				int limite = Math.min(qtd, array.length);
+				
+				for(int i = 0; i < limite; i++) {
+					System.out.println(array[i] + " ");
+			}
+				System.out.println(); // Quebra linha
+			}
+			
+			// 3. Imprime os elementods de um intervalo específico, inclusive do início até fim. 
+			public void printArray(int[] array, int inicio, int fim) {
+				// Validação dos índices para evitar exceções
+				if (inicio < 0 || fim >= array.length || inicio > fim) {
+					System.err.println("Intervalo Inválido!");
+					return;
+				}				
+				for(int i = inicio; i < fim ; i++) {
+					System.out.println(array[i] + " ");
+			}
+				System.out.println();
+			}	
+		}
+	}
