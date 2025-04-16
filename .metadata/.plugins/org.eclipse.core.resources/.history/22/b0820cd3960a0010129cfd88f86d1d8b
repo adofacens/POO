@@ -1,0 +1,28 @@
+package main;
+
+public class Matematica {
+
+//	public static void main(String[] args) {
+
+
+		public int soma(int a, int b) {
+			return a + b;
+		}
+		
+		public int soma(int a, int b, int c) {
+			return a + b + c;
+		}
+		
+		public int soma(int[] lista) {
+			int result = 0;
+			
+			for(int n : lista)
+				result += n;
+			
+			return result;
+		}
+		
+
+	}
+
+//}

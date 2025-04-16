@@ -1,0 +1,37 @@
+package main;
+
+public class Split {
+
+	public static void main(String[] args) {
+		// Criarmos uma String chamada "texto" contendo os nomes de frutas separados por vírgula
+		String texto = "banana,maçã,pera,laranja";
+				
+		/*
+		 * Uso do Split com Stering regex
+		 * Significa que vamos dividir a string sempre que encontrarmos uma vírgula.
+		 * Utilizando o método Slipt com a expressão regular ","
+		 */
+				String[] frutas = texto.split(",");
+		
+		// Exibirmos cada fruta que foi separada
+		System.out.println("Todas as frutas: ");
+		for (String fruta : frutas) {
+			System.out.println(fruta); // Imprime uma fruta por linha
+		}
+		
+		// Espaço visual entre os 2 exemplos
+		System.out.println("\nLimitando o número de Splits: ");
+		
+		// Aqui utilizaremos o Split com 2 argumentos, uma vírgula como separador e o n´mero 3 como limite, divindo a String no máximo em 3 partes.
+		String[] frutasLimitadas = texto.split(",",3);
+		
+		// A última parte conterá o restante da string sem mais divisões
+		
+		// Vamos exibir as frutas obtidas com o limite
+		for (String fruta : frutasLimitadas) {
+			System.out.println(fruta); // Imprime no máximo 3 partes
+		}
+
+	}
+
+}
